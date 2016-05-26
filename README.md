@@ -17,4 +17,4 @@
 &nbsp;&nbsp;&nbsp;Tip 2: to list your present working directory use, <code>$ pwd</code>
 <li>Run the ruby file by <code>$ ruby go.rb file_name.extension specific_app_name</code></li>
 &nbsp;&nbsp;&nbsp;&nbsp;For example: <code>$ruby go.rb index.html firefox
-</p>
+</ul></p>
