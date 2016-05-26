@@ -25,7 +25,7 @@ class Launcher
 	#execute the given file using associate app
 	def run file_name
 		application = select_app file_name #passing the file name to select_app
-		puts "#{application} #{file_name}"
+		#puts "#{application} #{file_name}"
 		system "#{application} #{file_name}"
 		#Ruby's system method to invoke the app, passing file name
 		#the system method simply kicks the given command into a sub-shell
@@ -42,7 +42,7 @@ class Launcher
 
 	#Return part of the file name string after the last '.'
 	def file_type file_name
-		File.extname(file_name).gsub(/^\./,'').downcase
+		p= File.extname(file_name).gsub(/^\./,'').downcase
 		#takes file name and uses File.extname(extname is a ruby class method on File class) to get extension
 		#the returned string consists the '.' that precedes file extension. 
 		#example : File.extname("shell.rb") will return ".rb"
@@ -66,29 +66,3 @@ end
 #when you see foo.bar
 #bar is a message passed to the object which is being referenced to by as foo
 #most of the time the object will have a method bar
-#
-
-def help
-	puts <<-END
-	You must pass in the path to the file to launch.
-
-	USAGE: #{__FILE__} target_file
-	END
-end
-
-if ARGV.empty?
-	help
-	exit
-end
-
-app_map = {
-	'html' => 'firefox',
-	'rb' => 'gvim',
-	'jpg' => 'gimp',
-	'jpeg' => 'picasaphotoviewer',
-	'pdf' => 'acroread'
-}
-
-l =Launcher.new app_map
-target = ARGV.join ' '
-l.run target
